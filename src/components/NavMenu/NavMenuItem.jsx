@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const NavMenuItem = ({ path, name }) => (
   <li className="text-center my-[10px] text-[18px]">
-    <a href={path}>{name}</a>
+    <Link to={path}>{name}</Link>
   </li>
 );
 

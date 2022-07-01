@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavMenu from "./NavMenu/NavMenu";
 
 const Header = ({ isOpen, setIsOpen, navMenuItems }) => (
@@ -9,7 +10,7 @@ const Header = ({ isOpen, setIsOpen, navMenuItems }) => (
       }}
     />
     <div className="font-nanum-brush-scipt text-[35px] font-bold text-blue-500 uppercase">
-      <a href='/'>spisak</a>
+      <Link to='/'>spisak</Link>
     </div>
     <NavMenu isOpen={isOpen} items={navMenuItems} />
   </header>
