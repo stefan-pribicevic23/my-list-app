@@ -1,5 +1,7 @@
-const Header = ({ isOpen, setIsOpen }) => (
-  <header className="fixed z-50 top-0 w-[100%] border-b-2 border-b-['#e6e6e6'] bg-white flex h-[80px] p-[20px] items-center">
+import NavMenu from "./NavMenu/NavMenu";
+
+const Header = ({ isOpen, setIsOpen, navMenuItems }) => (
+  <header className="fixed z-50 top-0 w-[100%] border-b-2 border-b-['#e6e6e6'] bg-white flex flex-wrap  p-[20px] items-center">
     <div
       className={`w-[30px] text-[30px] mr-[30%] ${isOpen ? `before:content-['✕']` : `before:content-['☰']`}`}
       onClick={() => {
@@ -9,6 +11,7 @@ const Header = ({ isOpen, setIsOpen }) => (
     <div className="font-nanum-brush-scipt text-[35px] font-bold text-blue-500 uppercase">
       <a href='/'>spisak</a>
     </div>
+    <NavMenu isOpen={isOpen} items={navMenuItems} />
   </header>
 )
 
