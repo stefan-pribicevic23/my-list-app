@@ -12,7 +12,7 @@ const Header = ({ isOpen, setIsOpen, navMenuItems }) => (
     <div className="font-nanum-brush-scipt text-[35px] font-bold text-blue-500 uppercase">
       <Link to='/'>spisak</Link>
     </div>
-    <NavMenu isOpen={isOpen} items={navMenuItems} />
+    <NavMenu isOpen={isOpen} items={navMenuItems} onItemClick={() => { setIsOpen(false) }} />
   </header>
 )
 
