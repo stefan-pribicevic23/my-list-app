@@ -8,7 +8,7 @@ const AddItem = ({ addItem }) => {
       <input
         className="border mb-[10px] w-[80%] px-[5px]"
         type="text"
-        placeholder="Naziv artikla"
+        placeholder="Naziv"
         onChange={(e) => {
           setInputText(e.target.value);
         }}
@@ -21,7 +21,7 @@ const AddItem = ({ addItem }) => {
           setInputText('');
         }}
       >
-        Dodaj artikl
+        Dodaj
       </button>
     </div>
   );

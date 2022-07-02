@@ -11,9 +11,11 @@ import {
 import storage from "redux-persist/lib/storage";
 
 import itemsReducer from './items';
+import listsReducer from './lists';
 
 const rootReducer = combineReducers({
   itemsReducer,
+  listsReducer,
 });
 
 const persistConfig = {
