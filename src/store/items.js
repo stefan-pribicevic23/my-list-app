@@ -5,7 +5,7 @@ const itemsSlice = createSlice({
   initialState: [],
   reducers: {
     addItem(state, action) {
-      state.push(action.item);
+      state.push(action.payload.item);
     },
     removeItem(state, action) {
       const removeItemIndex = state.indexOf(action.item);
