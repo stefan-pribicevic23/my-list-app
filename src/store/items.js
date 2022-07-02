@@ -8,7 +8,7 @@ const itemsSlice = createSlice({
       state.push(action.payload.item);
     },
     removeItem(state, action) {
-      const removeItemIndex = state.indexOf(action.item);
+      const removeItemIndex = state.indexOf(action.payload.item);
       if (removeItemIndex > -1) {
         state.splice(removeItemIndex, 1);
       }
