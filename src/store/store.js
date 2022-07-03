@@ -14,8 +14,8 @@ import itemsReducer from './items';
 import listsReducer from './lists';
 
 const rootReducer = combineReducers({
-  itemsReducer,
-  listsReducer,
+  items: itemsReducer,
+  lists: listsReducer,
 });
 
 const persistConfig = {

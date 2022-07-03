@@ -1,12 +1,27 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import addButton from '../assets/add-button.png';
 import AddItem from '../components/Item/AddItem';
-import { addList } from '../store/lists';
+import Item from '../components/Item/Item';
+import { addList, removeList } from '../store/lists';
 
 const MyLists = () => {
   const dispatch = useDispatch();
+  const lists = useSelector((state) => state.lists.entities);
   const [showAddItem, setShowAddItem] = useState(false);
+
+  const listsItems = [];
+
+  for (const [key, value] of Object.entries(lists)) {
+    console.log(key, value);
+    listsItems.push(
+      <Item
+        key={key}
+        name={value.name}
+        removeItem={() => { dispatch(removeList({ index: key })) }}
+      />
+    );
+  }
 
   return (
     <div>
@@ -21,12 +36,16 @@ const MyLists = () => {
       {showAddItem &&
         <AddItem
           addItem={(name) => {
-            console.log(name);
             dispatch(addList({ name }));
             setShowAddItem(false);
           }}
         />
       }
+      <div className="pt-[50px]">
+        {
+          listsItems.length > 0 && listsItems
+        }
+      </div>
     </div>
   );
 };

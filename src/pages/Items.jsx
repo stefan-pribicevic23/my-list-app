@@ -4,7 +4,7 @@ import AddItem from "../components/Item/AddItem";
 import Item from "../components/Item/Item";
 
 const Items = () => {
-  const items = useSelector((state) => state.itemsReducer);
+  const items = useSelector((state) => state.items);
   const dispatch = useDispatch();
 
   return (
@@ -15,7 +15,7 @@ const Items = () => {
             <Item
               key={item}
               name={item}
-              removeItem={(item) => dispatch(removeItem({ item }))}
+              removeItem={() => dispatch(removeItem({ item }))}
             />
         )}
       </div>

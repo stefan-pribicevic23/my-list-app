@@ -3,7 +3,7 @@ const Item = ({ name, removeItem }) => (
     <span>
       {name}
     </span>
-    <span className="absolute right-[20px]" onClick={() => { removeItem(name) }}>✕</span>
+    <span className="absolute right-[20px]" onClick={() => { removeItem() }}>✕</span>
   </div>
 );
 
