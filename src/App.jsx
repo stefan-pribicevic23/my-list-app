@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Items from "./pages/Items";
+import List from "./pages/List";
 import MyLists from "./pages/MyLists";
 
 function App() {
@@ -11,12 +12,20 @@ function App() {
       path: '/',
       name: 'Moje liste',
       component: <MyLists />,
+      showInNavMenu: true,
     },
     {
       path: '/articles',
       name: 'Artikli',
       component: <Items />,
+      showInNavMenu: true,
     },
+    {
+      path: '/list/:index',
+      name: 'Lista',
+      component: <List />,
+      showInNavMenu: false,
+    }
   ];
 
   return (

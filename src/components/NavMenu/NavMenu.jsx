@@ -5,15 +5,15 @@ const NavMenu = ({ isOpen, items, onItemClick }) => (
   <nav className="min-w-full ">
     <ul>
       {
-        items.map(({ path, name }, index) =>
-        (
-          <NavMenuItem
-            path={path}
-            name={name}
-            key={index}
-            onClick={onItemClick}
-          />
-        ))
+        items.map(({ path, name, showInNavMenu }, index) =>
+          showInNavMenu && (
+            <NavMenuItem
+              path={path}
+              name={name}
+              key={index}
+              onClick={onItemClick}
+            />
+          ))
       }
     </ul>
   </nav>
