@@ -15,14 +15,25 @@ const listsSlice = createSlice({
       delete state.entities[action.payload.index];
     },
     addListItem(state, action) {
-      console.log(action);
-      const { index, ...rest } = action.payload;
-      if (state.entities[index]) {
-        state.entities[index].items.push({
+      const { listIndex, ...rest } = action.payload;
+      const list = state.entities[listIndex];
+      if (list) {
+        list.items.push({
           ...rest,
         });
       }
+    },
+    removeListItem(state, action) {
+      const { listIndex, listItemName } = action.payload;
+      const list = state.entities[listIndex];
+      if (list) {
+        const listItemToBeRemovedIndex = list.items.findIndex(({ name }) => name === listItemName);
+        if (listItemToBeRemovedIndex > -1) {
+          list.items.splice(listItemToBeRemovedIndex, 1);
+        }
+      }
     }
+
   }
 });
 
