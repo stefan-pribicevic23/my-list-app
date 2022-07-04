@@ -39,6 +39,6 @@ const listsSlice = createSlice({
 
 const { actions, reducer } = listsSlice;
 
-export const { addList, removeList } = actions;
+export const { addList, removeList, addListItem, removeListItem } = actions;
 
 export default reducer;
