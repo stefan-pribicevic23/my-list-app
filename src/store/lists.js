@@ -13,6 +13,15 @@ const listsSlice = createSlice({
     },
     removeList(state, action) {
       delete state.entities[action.payload.index];
+    },
+    addListItem(state, action) {
+      console.log(action);
+      const { index, ...rest } = action.payload;
+      if (state.entities[index]) {
+        state.entities[index].items.push({
+          ...rest,
+        });
+      }
     }
   }
 });
