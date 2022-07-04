@@ -8,7 +8,7 @@ const AddItem = ({ addItem }) => {
       <input
         className="border mb-[10px] w-[80%] px-[5px]"
         type="text"
-        placeholder="Naziv"
+        placeholder="Naziv artikla"
         onChange={(e) => {
           setInputText(e.target.value);
         }}
