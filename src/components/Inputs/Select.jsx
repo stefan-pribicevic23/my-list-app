@@ -1,4 +1,4 @@
-const Select = ({ id, title, placeholder, options = [] }) => (
+const Select = ({ id, title, placeholder, options = [], value = "", setValue = () => { } }) => (
   <div className="flex items-center m-[10px]">
     <label htmlFor={id}>{title}</label>
     <input
@@ -6,6 +6,10 @@ const Select = ({ id, title, placeholder, options = [] }) => (
       id={id}
       list={`${id}-suggestions`}
       placeholder={placeholder}
+      value={value}
+      onChange={(e) => {
+        setValue(e.target.value);
+      }}
     />
     {options && <datalist id={`${id}-suggestions`}>
       {

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import AddListItem from "../components/Item/AddListItem";
 import Item from "../components/Item/Item";
-import { removeListItem } from "../store/lists";
+import { addListItem, removeListItem } from "../store/lists";
 
 const List = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,10 @@ const List = () => {
           />
         )}
       </div>
-      <AddListItem items={items} />
+      <AddListItem
+        items={items}
+        addListItem={(params) => dispatch(addListItem({ listIndex: index, ...params }))}
+      />
     </div>
   );
 };
