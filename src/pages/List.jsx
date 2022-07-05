@@ -12,7 +12,7 @@ const List = () => {
 
   return (
     <div>
-      <div className="max-h-[calc(100vh-400px)] overflow-scroll">
+      <div className="max-h-[calc(100vh-450px)] overflow-scroll">
         {list.items.map(({ name, count, measure }) =>
           <Item
             key={name}
