@@ -9,7 +9,7 @@ const Items = () => {
 
   return (
     <>
-      <div className="pt-[50px]">
+      <div className="pt-[50px] max-h-[calc(100vh-250px)] overflow-scroll">
         {items.map(
           item =>
             <Item
