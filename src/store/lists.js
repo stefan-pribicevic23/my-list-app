@@ -1,5 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const getItemIndex = (list, listItemName) => {
+  if (list) {
+    return list.items.findIndex(({ name }) => name === listItemName);
+  }
+
+  return -1;
+}
+
 const listsSlice = createSlice({
   name: 'lists',
   initialState: {
@@ -20,17 +28,26 @@ const listsSlice = createSlice({
       if (list) {
         list.items.push({
           ...rest,
+          checked: false,
         });
       }
     },
     removeListItem(state, action) {
       const { listIndex, listItemName } = action.payload;
       const list = state.entities[listIndex];
-      if (list) {
-        const listItemToBeRemovedIndex = list.items.findIndex(({ name }) => name === listItemName);
-        if (listItemToBeRemovedIndex > -1) {
-          list.items.splice(listItemToBeRemovedIndex, 1);
-        }
+      const listItemIndex = getItemIndex(list, listItemName);
+
+      if (listItemIndex > -1) {
+        list.items.splice(listItemIndex, 1);
+      }
+    },
+    toggleListItem(state, action) {
+      const { listIndex, listItemName } = action.payload;
+      const list = state.entities[listIndex];
+      const listItemIndex = getItemIndex(list, listItemName);
+
+      if (listItemIndex > -1) {
+        list.items[listItemIndex].checked = !list.items[listItemIndex].checked;
       }
     }
 
@@ -39,6 +56,6 @@ const listsSlice = createSlice({
 
 const { actions, reducer } = listsSlice;
 
-export const { addList, removeList, addListItem, removeListItem } = actions;
+export const { addList, removeList, addListItem, removeListItem, toggleListItem } = actions;
 
 export default reducer;
