@@ -16,7 +16,6 @@ const MyLists = () => {
   const listsItems = [];
 
   for (const [key, value] of Object.entries(lists).reverse()) {
-    console.log(key, value);
     listsItems.push(
       <Item
         key={key}

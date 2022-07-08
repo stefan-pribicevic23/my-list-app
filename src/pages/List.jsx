@@ -15,11 +15,11 @@ const List = () => {
       <div className="max-h-[calc(100vh-450px)] overflow-scroll">
         {list.items.map(({ name, count, measure }) =>
           <Item
-            key={name}
+            key={`${name}${count}${measure}${index}}`}
             name={name}
             count={count}
             measure={measure}
-            removeItem={() => dispatch(removeListItem({ listIndex: index, name }))}
+            removeItem={() => dispatch(removeListItem({ listIndex: index, listItemName: name }))}
           />
         )}
       </div>
