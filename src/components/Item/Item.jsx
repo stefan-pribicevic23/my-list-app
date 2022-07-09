@@ -3,11 +3,11 @@ const Item = ({
   count = "",
   measure = "",
   removeItem,
-  toggleItem,
+  onItemClick,
   checked = false,
 }) => (
   <div className="text-center font-nanum-brush-scipt text-[30px] relative">
-    <span className={`${checked ? 'line-through' : ''}`} onClick={toggleItem}>
+    <span className={`${checked ? 'line-through' : ''}`} onClick={onItemClick}>
       <span>{name}</span>
       {count && <span>{` `}{count}</span>}
       {measure && <span>{` `}{measure}</span>}

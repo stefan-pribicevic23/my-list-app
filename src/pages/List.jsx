@@ -20,7 +20,7 @@ const List = () => {
             count={count}
             measure={measure}
             removeItem={() => dispatch(removeListItem({ listIndex: index, listItemName: name }))}
-            toggleItem={() => { dispatch(toggleListItem({ listIndex: index, listItemName: name })) }}
+            onItemClick={() => { dispatch(toggleListItem({ listIndex: index, listItemName: name })) }}
             checked={checked}
           />
         )}

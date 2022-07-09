@@ -21,7 +21,7 @@ const MyLists = () => {
         key={key}
         name={value.name}
         removeItem={() => { dispatch(removeList({ index: key })) }}
-        onClick={() => { navigate(`/list/${key}`) }}
+        onItemClick={() => { navigate(`/list/${key}`) }}
       />
     );
   }
